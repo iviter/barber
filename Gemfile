@@ -15,6 +15,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'active_model_serializers', '~> 0.10.10'
 gem 'mail', '~> 2.7', '>= 2.7.1'
 gem 'json', '~> 2.3', '>= 2.3.1'
+gem 'bcrypt', '~> 3.1', '>= 3.1.16'
+gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.4'
+gem 'capistrano', '~> 3.14', '>= 3.14.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
