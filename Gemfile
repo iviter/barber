@@ -7,9 +7,7 @@ gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 gem 'puma', '~> 4.1'
 gem 'mysql2', '>= 0.4.4'
 gem 'cancan', '~> 1.6', '>= 1.6.10'
-gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'active_model_serializers', '~> 0.10.10'
@@ -18,6 +16,15 @@ gem 'json', '~> 2.3', '>= 2.3.1'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.4'
 gem 'capistrano', '~> 3.14', '>= 3.14.1'
+
+#FrontEnd
+gem 'sass-rails', '~> 6.0'
+gem 'coffee-rails', '~> 5.0'
+gem 'turbolinks', '~> 5.2', '>= 5.2.1'
+gem 'bootstrap', '~> 4.5', '>= 4.5.3'
+gem 'jquery-rails', '~> 4.4'
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
+gem 'uglifier', '~> 4.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
