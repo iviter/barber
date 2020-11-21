@@ -12,6 +12,9 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'active_model_serializers', '~> 0.10.10'
+gem 'mail', '~> 2.7', '>= 2.7.1'
+gem 'json', '~> 2.3', '>= 2.3.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -21,20 +24,24 @@ group :development, :test do
   gem 'faker', '~> 2.14'
   gem 'rubocop', '~> 1.3', '>= 1.3.1'
   gem 'colorize', '~> 0.8.1'
+  gem 'capybara', '~> 3.33'
+  gem 'database_cleaner', '~> 1.8', '>= 1.8.5'
+  gem 'awesome_print', '~> 1.8'
 end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'
-  gem 'spring'
+  gem 'spring', '~> 2.1', '>= 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-commands-rspec', '~> 1.0', '>= 1.0.4'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
   gem 'simplecov', '~> 0.19.1'
+  gem 'capybara-screenshot', '~> 1.0', '>= 1.0.25'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
