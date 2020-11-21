@@ -17,6 +17,10 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  gem 'factory_bot_rails', '~> 6.1'
+  gem 'faker', '~> 2.14'
+  gem 'rubocop', '~> 1.3', '>= 1.3.1'
+  gem 'colorize', '~> 0.8.1'
 end
 
 group :development do
@@ -30,6 +34,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'simplecov', '~> 0.19.1'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
