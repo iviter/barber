@@ -17,6 +17,15 @@ class CarsController < ApplicationController
     end
   end
 
+  def show
+    @car = Car.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @car }
+    end
+  end
+
   def edit
     @car = Car.find(params[:id])
 
