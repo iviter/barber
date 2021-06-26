@@ -1,0 +1,15 @@
+<div class="content">
+ <div style="display:inline-block;">
+    <table class="table" id="cars_list">
+      <% @cars.each do |car| %>
+          <tr>
+            <td><%= car %>  </td>
+            <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_car_path(car), :class => "btn btn-default btn-mini" %>
+            <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, car, :confirm => 'Are you sure you want to delete the car?', :method => :delete, :class => "btn btn-mini btn-danger" %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+ </div>
+</div>
+
