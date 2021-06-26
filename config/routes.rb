@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get 'home', to: 'home#index'
   devise_for :users
-  
+  get 'authorized', to: 'sessions#page_requires_login'
   resources :cars
   root to: 'home#index'
 end
