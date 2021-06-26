@@ -37,6 +37,16 @@ class CarsController < ApplicationController
 
   def update
     @car = Car.find(params[:id])
+
+    respond_to do |format|
+      if @car.update_attributes(car_params)
+        format.html { redirect_to cars_path, notice: 'Car was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @car.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create
@@ -66,5 +76,7 @@ class CarsController < ApplicationController
   private
 
   def car_params
+    params.require(:car).permit(:body_type, :model, :brand, :fuel_type, :engine_capacity, :condition, :color, :price,
+                                :year, :user_id)
   end
 end

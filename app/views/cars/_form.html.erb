@@ -56,6 +56,10 @@
       <%= f.text_field :year %>
     </fieldset>
 
+    <div>
+      <%= f.hidden_field :user_id, value: Provider.last.id %>
+    </div>
+
     <div class="actions">
       <%= link_to "Cancel", cars_path, :class => "btn" %>
       <%= f.submit "Save", :class => "btn btn-primary" %>
