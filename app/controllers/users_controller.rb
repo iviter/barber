@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
+  before_action :authenticate_user!
+
   def new
     @user = User.new
   end

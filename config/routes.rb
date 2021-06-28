@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   devise_for :users
   get 'authorized', to: 'sessions#page_requires_login'
   resources :cars
+  resource :user_profiles
   root to: 'home#index'
 end
