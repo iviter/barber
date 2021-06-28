@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  has_secure_password
+  USER_TYPES = ['Provider', 'Admin']
+  #has_secure_password
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates_presence_of :type
+  validates_inclusion_of :type, in: USER_TYPES
 end
