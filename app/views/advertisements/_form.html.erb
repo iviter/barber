@@ -27,7 +27,7 @@
     </fieldset>
 
     <div>
-      <%= f.hidden_field :user_id, value: Provider.last.id %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
 
     <div class="actions">
