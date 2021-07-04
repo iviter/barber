@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'authorized', to: 'sessions#page_requires_login'
   resources :cars
   resource :user_profiles
-  resources :advertisements
+  resources :advertisements do
+    resources :comments
+  end
   root to: 'home#index'
 end

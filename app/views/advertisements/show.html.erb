@@ -8,7 +8,6 @@
   <%= @ad.ad_type %>
 </p>
 
-
 <p>
   <b>Description:</b>
   <%= @ad.description %>
@@ -17,11 +16,12 @@
 <% if @ad.comments.any? %>
   <b>Comments:</b>
   <% @ad.comments.each do |comment| %>
-
-    <%= comment %>
+    <p> Title: <%= comment.title %> </p>
+    <p> Body: <%= comment.body %> </p>
   <% end %>
 <% end %>
 
+<%= render 'comment' %>
 
 <%= link_to 'Edit', edit_advertisement_path(@ad) %> |
 <%= link_to 'Back', advertisements_path %>
