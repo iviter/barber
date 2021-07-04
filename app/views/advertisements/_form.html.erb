@@ -1,0 +1,32 @@
+<%= form_for(@ad) do |f| %>
+    <% if @ad.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this advertisement from being saved:</h2>
+
+          <ul>
+            <% @ad.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <fieldset>
+      <%= f.label :type %>
+      <%= f.text_field :type, :class => "colorpicker" %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :rating %>
+      <%= f.text_field :rating %>
+    </fieldset>
+
+    <div>
+      <%= f.hidden_field :user_id, value: Provider.last.id %>
+    </div>
+
+    <div class="actions">
+      <%= link_to "Cancel", cars_path, :class => "btn" %>
+      <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+<% end %>

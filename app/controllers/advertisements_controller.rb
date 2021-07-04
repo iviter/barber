@@ -1,8 +1,10 @@
 class AdvertisementsController < ApplicationController
   def index
+    @ads = Advertisement.all
   end
 
   def new
+    @ad = Advertisement.new
   end
 
   def show
