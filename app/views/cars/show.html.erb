@@ -33,5 +33,14 @@
   <%= @car.condition %>
 </p>
 
+<p>
+  <% if @car.pictures.any? %>
+    <p> <b>Images: </b></p>
+    <% @car.pictures.each do |image| %>
+      <%= image_tag image.url, class: "img-responsive" unless image.file.nil? %>
+    <% end %>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
