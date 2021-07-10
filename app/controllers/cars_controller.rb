@@ -42,7 +42,7 @@ class CarsController < ApplicationController
 
     respond_to do |format|
       if @car.update_attributes(car_params)
-        format.html { redirect_to cars_path, notice: 'Car was successfully updated.' }
+        format.html { redirect_to car_path, notice: 'Car was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

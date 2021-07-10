@@ -35,7 +35,7 @@ class AdvertisementsController < ApplicationController
 
     respond_to do |format|
       if @ad.update_attributes(ad_params)
-        format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully updated.' }
+        format.html { redirect_to advertisement_path, notice: 'Advertisement was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
