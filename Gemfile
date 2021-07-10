@@ -17,6 +17,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.16'
 gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.4'
 gem 'capistrano', '~> 3.14', '>= 3.14.1'
 gem 'devise', '~> 4.8'
+gem 'carrierwave', '~> 2.0'
 
 #FrontEnd
 gem 'sass-rails', '~> 6.0'
