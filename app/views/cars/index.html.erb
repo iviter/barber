@@ -9,8 +9,8 @@
         <td> <b>Engine:</b> </td>
         <td> <b>Condition:</b> </td>
         <td> <b>Price:</b> </td>
-        <td> <b>Year:</b> </td>
         <td> <b>Color:</b> </td>
+        <td> <b>Year:</b> </td>
       </tr>
 
       <% @cars.each do |car| %>
@@ -22,7 +22,6 @@
             <td><%= car.engine_capacity %></td>
             <td><%= car.condition %></td>
             <td><%= car.price %></td>
-            <td><%= car.year %></td>
             <td><%= car.color %></td>
             <td><%= car.year %></td>
             <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_car_path(car), :class => "btn btn-default btn-mini" %>
