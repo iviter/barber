@@ -1,0 +1,25 @@
+<div class="content">
+ <div style="display:inline-block;">
+    <table class="table" id="ads_list">
+      <tr>
+        <td> <b>Title:</b> </td>
+        <td> <b>Type:</b> </td>
+        <td> <b>Description:</b> </td>
+      </tr>
+
+      <% @ads.each do |ad| %>
+          <tr>
+            <td><%= ad.title %></td>
+            <td><%= ad.ad_type %></td>
+            <td><%= ad.description %></td>
+            <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_advertisement_path(ad), :class => "btn btn-default btn-mini" %>
+            <%= link_to '<i class="fa fa-trash-o"></i> Delete'.html_safe, ad, :confirm => 'Are you sure you want to delete the advertisement?', :method => :delete, :class => "btn btn-mini btn-danger" %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+ 
+    <%= link_to 'Add new advertisement', new_advertisement_path %>
+  </div>
+</div>
+

@@ -2,20 +2,20 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['BARBER_DB_USERNAME'] %>
-  password: <%= ENV['BARBER_DB_PASSWORD'] %>
+  username: <%= ENV['CAR_PORTAL_DB_USERNAME'] %>
+  password: <%= ENV['CAR_PORTAL_DB_PASSWORD'] %>
   socket: /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
-  database: <%= ENV['BARBER_DB_SCHEMA'] %>
+  database: <%= ENV['CAR_PORTAL_DB_SCHEMA'] %>
 
 test:
   <<: *default
-  database: <%= ENV['BARBER_TEST_DB_SCHEMA'] %>
+  database: <%= ENV['CAR_PORTAL_TEST_DB_SCHEMA'] %>
 
 production:
   <<: *default
-  database: barber_production
-  username: barber
-  password: <%= ENV['BARBER_DATABASE_PASSWORD'] %>
+  database: car_portal_production
+  username: root
+  password: <%= ENV['CAR_PORTAL_DB_PASSWORD'] %>

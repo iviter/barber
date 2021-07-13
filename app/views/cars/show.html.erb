@@ -1,0 +1,46 @@
+<p>
+  <b>Brand:</b>
+  <%= @car.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @car.model %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @car.body_type %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @car.color %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @car.year %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @car.price %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @car.condition %>
+</p>
+
+<p>
+  <% if @car.pictures.any? %>
+    <p> <b>Images: </b></p>
+    <% @car.pictures.each do |image| %>
+      <%= image_tag image.url, class: "img-responsive" unless image.file.nil? %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
