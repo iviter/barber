@@ -66,14 +66,18 @@
 
 <% if @ad.comments.any? %>
   <b>Comments:</b>
+  <hr>
   <% @ad.comments.each do |comment| %>
     <p> Author: <%= comment.user.email %> </p>
     <p> Title: <%= comment.title %> </p>
     <p> Body: <%= comment.body %> </p>
+    <%= button_to 'Edit', edit_advertisement_comment_path(@ad.id, comment.id), method: :get %>
+    <%= button_to 'Delete', advertisement_comment_path(@ad.id, comment.id), method: :delete %>
+    <hr>
   <% end %>
 <% end %>
 
-<%= render 'comment' %>
+<%= render 'comments/comment' %>
 
 <%= link_to 'Edit', edit_advertisement_path(@ad) %> |
 <%= link_to 'Back', advertisements_path %>
