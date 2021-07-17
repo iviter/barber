@@ -45,6 +45,8 @@ class AdvertisementsController < ApplicationController
   private
 
   def ad_params
-    params.require(:advertisement).permit(:ad_type, :title, :description).merge(user_id: current_user.id)
+    params.require(:advertisement).permit(:ad_type, :title, :description, :body_type, :model, :brand, :fuel_type,
+                                          :engine_capacity, :condition, :color, :price, :year,
+                                          { pictures: [] }).merge(user_id: current_user.id)
   end
 end
