@@ -16,6 +16,7 @@
 <% if @ad.comments.any? %>
   <b>Comments:</b>
   <% @ad.comments.each do |comment| %>
+    <p> Author: <%= comment.user.email %> </p>
     <p> Title: <%= comment.title %> </p>
     <p> Body: <%= comment.body %> </p>
   <% end %>
