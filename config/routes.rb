@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resource :user_profiles
   resources :advertisements do
     resources :comments
+    post 'publish_ad', on: :member
   end
   root to: 'home#index'
 end

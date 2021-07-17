@@ -62,6 +62,8 @@
   <% end %>
 </p>
 
+<%= button_to 'Publish', publish_ad_advertisement_path %>
+
 <% if @ad.comments.any? %>
   <b>Comments:</b>
   <% @ad.comments.each do |comment| %>
