@@ -9,7 +9,7 @@
 
       <% @ads.each do |ad| %>
           <tr>
-            <td><%= ad.title %></td>
+            <td><%= link_to ad.title, advertisement_path(ad.id) %></td>
             <td><%= ad.ad_type %></td>
             <td><%= ad.description %></td>
             <td><%= link_to '<i class="fa fa-pencil"></i> Edit'.html_safe, edit_advertisement_path(ad), :class => "btn btn-default btn-mini" %>
