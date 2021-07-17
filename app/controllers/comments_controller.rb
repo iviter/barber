@@ -2,14 +2,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comments_params)
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to advertisements_path, notice: 'Comment was successfully added.' }
-        format.json { render json: @comment, status: :created, location: @car }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
+    if @comment.save
+      redirect_to advertisements_path, notice: 'Comment was successfully added.'
+    else
+      render action: 'new'
     end
   end
 
