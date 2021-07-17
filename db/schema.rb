@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_063838) do
+ActiveRecord::Schema.define(version: 2021_07_17_082417) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2021_07_10_063838) do
     t.integer "car_id"
     t.text "description"
     t.string "title"
+    t.string "body_type"
+    t.string "brand"
+    t.string "model"
+    t.integer "price"
+    t.integer "year"
+    t.string "country"
+    t.string "condition"
+    t.string "fuel_type"
+    t.float "engine_capacity"
+    t.string "color"
+    t.json "pictures"
   end
 
   create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
