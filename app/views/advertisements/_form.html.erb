@@ -26,6 +26,56 @@
       <%= f.text_field :description %>
     </fieldset>
 
+    <fieldset>
+      <%= f.label :type %>
+      <%= f.text_field :body_type, :class => "colorpicker" %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :model %>
+      <%= f.text_field :model %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :brand %>
+      <%= f.text_field :brand %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :fuel_type %>
+      <%= f.text_field :fuel_type %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :engine_capacity %>
+      <%= f.text_field :engine_capacity %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :condition %>
+      <%= f.text_field :condition %>
+    </fieldset>
+    
+    <fieldset>
+      <%= f.label :color %>
+      <%= f.text_field :color %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :price %>
+      <%= f.text_field :price %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :year %>
+      <%= f.text_field :year %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :images %>
+      <%= f.file_field :pictures, multiple: true %>
+    </fieldset>
+
     <div>
       <%= f.hidden_field :user_id, value: current_user.id %>
     </div>
