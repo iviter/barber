@@ -1,21 +1,46 @@
 class CommentsController < ApplicationController
+  before_action :find_comment, only: %i[edit update destroy]
+
   def create
     @comment = Comment.new(comments_params)
 
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to advertisements_path, notice: 'Comment was successfully added.' }
-        format.json { render json: @comment, status: :created, location: @car }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
+    if @comment.save
+      redirect_to advertisement_path(advertisement.id), notice: 'Comment was successfully added.'
+    else
+      render action: 'new'
     end
+  end
+
+  def edit
+    advertisement
+  end
+
+  def update
+    if @comment.update_attributes(comments_params)
+      redirect_to advertisement_path(advertisement.id), notice: 'Comment was successfully updated.'
+    else
+      render action: 'edit'
+    end
+  end
+
+  def destroy
+    @comment.destroy
+
+    redirect_to advertisement_path(advertisement.id), notice: 'Comment was successfully deleted.'
   end
 
   private
 
   def comments_params
-    params.require(:comment).permit(:title, :body, :user_id, :advertisement_id)
+    params.require(:comment).permit(:title, :body).merge(user_id: current_user.id,
+                                                         advertisement_id: params[:advertisement_id])
+  end
+
+  def find_comment
+    @comment ||= Comment.find(params[:id])
+  end
+
+  def advertisement
+    @ad ||= Advertisement.find(params[:advertisement_id])
   end
 end

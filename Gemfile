@@ -18,6 +18,7 @@ gem 'delayed_job_active_record', '~> 4.1', '>= 4.1.4'
 gem 'capistrano', '~> 3.14', '>= 3.14.1'
 gem 'devise', '~> 4.8'
 gem 'carrierwave', '~> 2.0'
+gem 'rest-client', '~> 2.1'
 
 #FrontEnd
 gem 'sass-rails', '~> 6.0'

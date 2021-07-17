@@ -13,15 +13,71 @@
   <%= @ad.description %>
 </p>
 
+<p>
+  <b>Brand:</b>
+  <%= @ad.brand %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @ad.model %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @ad.body_type %>
+</p>
+
+<p>
+  <b>Fuel:</b>
+  <%= @ad.fuel_type %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @ad.color %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @ad.year %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @ad.price %>
+</p>
+
+<p>
+  <b>Condition:</b>
+  <%= @ad.condition %>
+</p>
+
+<p>
+  <% if @ad.pictures.present? %>
+    <p> <b>Images: </b></p>
+    <% @ad.pictures.each do |image| %>
+      <%= image_tag image.url, class: "img-responsive" unless image.file.nil? %>
+    <% end %>
+  <% end %>
+</p>
+
+<%= button_to 'Publish', publish_ad_advertisement_path %>
+
 <% if @ad.comments.any? %>
   <b>Comments:</b>
+  <hr>
   <% @ad.comments.each do |comment| %>
+    <p> Author: <%= comment.user.email %> </p>
     <p> Title: <%= comment.title %> </p>
     <p> Body: <%= comment.body %> </p>
+    <%= button_to 'Edit', edit_advertisement_comment_path(@ad.id, comment.id), method: :get %>
+    <%= button_to 'Delete', advertisement_comment_path(@ad.id, comment.id), method: :delete %>
+    <hr>
   <% end %>
 <% end %>
 
-<%= render 'comment' %>
+<%= render 'comments/comment' %>
 
 <%= link_to 'Edit', edit_advertisement_path(@ad) %> |
 <%= link_to 'Back', advertisements_path %>

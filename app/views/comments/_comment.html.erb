@@ -1,0 +1,17 @@
+<h3>Add comment: </h3>
+
+<%= form_for([@ad, Comment.new]) do |f| %>
+    <fieldset>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </fieldset>
+
+    <fieldset>
+      <%= f.label :body %>
+      <%= f.text_field :body %>
+    </fieldset>
+
+    <div class="actions">
+      <%= f.submit "Save", :class => "btn btn-primary" %>
+    </div>
+<% end %>

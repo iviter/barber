@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_063838) do
+ActiveRecord::Schema.define(version: 2021_07_17_091334) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_063838) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "car_id"
     t.text "description"
-    t.string "title"
-  end
-
-  create_table "cars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "body_type"
     t.string "brand"
     t.string "model"
@@ -44,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_10_063838) do
     t.float "engine_capacity"
     t.string "color"
     t.json "pictures"
+    t.string "title"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -53,13 +47,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_063838) do
     t.string "title"
     t.text "body"
     t.integer "user_id"
-  end
-
-  create_table "parts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "advertisement_id"
-    t.string "car_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "providers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

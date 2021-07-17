@@ -1,76 +1,53 @@
 class AdvertisementsController < ApplicationController
+  before_action :find_ad, only: %i[show edit update destroy publish_ad]
+
   def index
     @ads = Advertisement.all
   end
 
   def new
     @ad = Advertisement.new
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @ad }
-    end
   end
 
-  def show
-    @ad = Advertisement.find(params[:id])
+  def show; end
 
-    respond_to do |format|
-      format.html
-      format.json { render json: @ad }
-    end
-  end
-
-  def edit
-    @ad = Advertisement.find(params[:id])
-
-    respond_to do |format|
-      format.html
-      format.json { render json: @ad }
-    end
-  end
+  def edit; end
 
   def update
-    @ad = Advertisement.find(params[:id])
-
-    respond_to do |format|
-      if @ad.update_attributes(ad_params)
-        format.html { redirect_to advertisement_path, notice: 'Advertisement was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @ad.errors, status: :unprocessable_entity }
-      end
+    if @ad.update_attributes(ad_params)
+      redirect_to advertisement_path, notice: 'Advertisement was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
   def create
     @ad = Advertisement.new(ad_params)
 
-    respond_to do |format|
-      if @ad.save
-        format.html { redirect_to advertisements_path, notice: 'Advertisement was successfully created.' }
-        format.json { render json: @ad, status: :created, location: @ad }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ad.errors, status: :unprocessable_entity }
-      end
+    if @ad.save
+      redirect_to advertisements_path, notice: 'Advertisement was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
+  def publish_ad; end
+
   def destroy
-    @ad = Advertisement.find(params[:id])
     @ad.destroy
 
-    respond_to do |format|
-      format.html { redirect_to advertisements_path }
-      format.json { head :no_content }
-    end
+    redirect_to advertisements_path
   end
 
   private
 
   def ad_params
-    params.require(:advertisement).permit(:ad_type, :title, :description, :user_id, :car_id)
+    params.require(:advertisement).permit(:ad_type, :title, :description, :body_type, :model, :brand, :fuel_type,
+                                          :engine_capacity, :condition, :color, :price, :year,
+                                          { pictures: [] }).merge(user_id: current_user.id)
+  end
+
+  def find_ad
+    @ad ||= Advertisement.find(params[:id])
   end
 end

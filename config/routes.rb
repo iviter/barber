@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   get 'home', to: 'home#index'
   devise_for :users
   get 'authorized', to: 'sessions#page_requires_login'
-  resources :cars
+  #resources :cars
   resource :user_profiles
   resources :advertisements do
     resources :comments
+    post 'publish_ad', on: :member
   end
   root to: 'home#index'
 end
